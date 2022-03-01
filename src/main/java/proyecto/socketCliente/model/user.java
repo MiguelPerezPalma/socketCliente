@@ -6,7 +6,7 @@ public class user {
 	protected String password;
 	protected int wallet;
 	protected account miaccount;
-	
+	protected boolean isOperator;
 
 	public user(int id, String name, String password, int wallet, account miaccount) {
 		super();

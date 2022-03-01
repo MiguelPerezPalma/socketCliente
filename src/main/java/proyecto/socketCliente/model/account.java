@@ -5,32 +5,21 @@ import java.util.List;
 public class account {
 	protected int id;
 	protected int money;
-	protected List<user> users;
-	
-	
-	public account(int id, int money, List<user> users) {
+	protected user user;
+	public account(int id, int money, proyecto.socketCliente.model.user user) {
 		super();
 		this.id = id;
 		this.money = money;
-		this.users = users;
+		this.user = user;
 	}
-
-	public account() {
+	public account(int money, proyecto.socketCliente.model.user user) {
 		super();
+		this.money = money;
+		this.user = user;
 	}
-
-	public List<user> getUsers() {
-		return users;
-	}
-
-	public void setUsers(List<user> users) {
-		this.users = users;
-	}
-
 	public int getId() {
 		return id;
 	}
-
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -40,7 +29,12 @@ public class account {
 	public void setMoney(int money) {
 		this.money = money;
 	}
-
+	public user getUser() {
+		return user;
+	}
+	public void setUser(user user) {
+		this.user = user;
+	}
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -54,18 +48,19 @@ public class account {
 			return false;
 		if (money != other.money)
 			return false;
-		if (users == null) {
-			if (other.users != null)
+		if (user == null) {
+			if (other.user != null)
 				return false;
-		} else if (!users.equals(other.users))
+		} else if (!user.equals(other.user))
 			return false;
 		return true;
 	}
-
 	@Override
 	public String toString() {
-		return "account [id=" + id + ", money=" + money + ", users=" + users + "]";
+		return "account [id=" + id + ", money=" + money + ", user=" + user + "]";
 	}
 	
+	
+		
 	
 }
