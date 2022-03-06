@@ -24,5 +24,6 @@
       <TextField layoutX="96.0" layoutY="204.0" />
       <Label layoutX="117.0" layoutY="87.0" text="Nombre De Usuario" />
       <Label layoutX="140.0" layoutY="176.0" text="Contraseña" />
+      <Button layoutX="250.0" layoutY="369.0" mnemonicParsing="false" text="Administrar" />
    </children>
 </AnchorPane>

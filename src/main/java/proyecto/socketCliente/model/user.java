@@ -5,28 +5,28 @@ public class user {
 	protected String name;
 	protected String password;
 	protected int wallet;
-	protected account miaccount;
 	protected boolean isOperator;
 
-	public user(int id, String name, String password, int wallet, account miaccount) {
+	
+	public user(int id, String name, String password, int wallet, boolean isOperator) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.password = password;
 		this.wallet = wallet;
-		this.miaccount = miaccount;
+		this.isOperator = isOperator;
+	}
+	
+	public user(String name, String password, int wallet, boolean isOperator) {
+		super();
+		this.name = name;
+		this.password = password;
+		this.wallet = wallet;
+		this.isOperator = isOperator;
 	}
 
 	public user() {
 		super();
-	}
-
-	public account getMiaccount() {
-		return miaccount;
-	}
-
-	public void setMiaccount(account miaccount) {
-		this.miaccount = miaccount;
 	}
 
 	public int getId() {
@@ -56,42 +56,6 @@ public class user {
 		this.password = password;
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		user other = (user) obj;
-		if (id != other.id)
-			return false;
-		if (miaccount == null) {
-			if (other.miaccount != null)
-				return false;
-		} else if (!miaccount.equals(other.miaccount))
-			return false;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		if (password == null) {
-			if (other.password != null)
-				return false;
-		} else if (!password.equals(other.password))
-			return false;
-		if (wallet != other.wallet)
-			return false;
-		return true;
-	}
-
-	@Override
-	public String toString() {
-		return "user [id=" + id + ", name=" + name + ", password=" + password + ", wallet=" + wallet + ", miaccount="
-				+ miaccount + "]";
-	}
 
 }
 
