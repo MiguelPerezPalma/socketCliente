@@ -6,13 +6,18 @@ public class ClientSend {
 	protected int select;
     protected Object obj1;
     protected Object obj2;
-    protected boolean comprobante;
-	public ClientSend(Object obj1, Object obj2, boolean comprobante) {
+	public ClientSend(int select, Object obj1, Object obj2) {
 		super();
 		this.obj1 = obj1;
 		this.obj2 = obj2;
-		this.comprobante = comprobante;
 	}
+	
+	public ClientSend(int select, Object obj1) {
+		super();
+		this.select = select;
+		this.obj1 = obj1;
+	}
+
 	public int getSelect() {
 		return select;
 	}
@@ -31,12 +36,7 @@ public class ClientSend {
 	public void setObj2(Object obj2) {
 		this.obj2 = obj2;
 	}
-	public boolean isComprobante() {
-		return comprobante;
-	}
-	public void setComprobante(boolean comprobante) {
-		this.comprobante = comprobante;
-	}
+	
     
     
 }

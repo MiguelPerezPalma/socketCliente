@@ -17,6 +17,10 @@ public class account {
 		this.money = money;
 		this.user = user;
 	}
+	
+	public account() {
+		super();
+	}
 	public int getId() {
 		return id;
 	}

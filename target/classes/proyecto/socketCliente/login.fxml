@@ -8,7 +8,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="408.0" prefWidth="342.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="408.0" prefWidth="342.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyecto.socketCliente.LoginController">
    <children>
       <MenuBar layoutY="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <menus>
@@ -19,11 +19,11 @@
             </Menu>
          </menus>
       </MenuBar>
-      <Button layoutX="128.0" layoutY="308.0" mnemonicParsing="false" text="Iniciar Sesion" />
-      <TextField layoutX="96.0" layoutY="117.0" />
-      <TextField layoutX="96.0" layoutY="204.0" />
+      <Button layoutX="128.0" layoutY="308.0" mnemonicParsing="false" onAction="#Login" text="Iniciar Sesion" />
+      <TextField fx:id="txfName" layoutX="96.0" layoutY="117.0" />
+      <TextField fx:id="txfPassword" layoutX="96.0" layoutY="204.0" />
       <Label layoutX="117.0" layoutY="87.0" text="Nombre De Usuario" />
       <Label layoutX="140.0" layoutY="176.0" text="Contraseña" />
-      <Button layoutX="250.0" layoutY="369.0" mnemonicParsing="false" text="Administrar" />
+      <Button layoutX="245.0" layoutY="368.0" mnemonicParsing="false" onAction="#switchToOperator" text="Registrarse" />
    </children>
 </AnchorPane>

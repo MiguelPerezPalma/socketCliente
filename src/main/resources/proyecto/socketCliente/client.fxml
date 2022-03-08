@@ -5,11 +5,11 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="312.0" prefWidth="329.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="366.0" prefWidth="329.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <MenuBar layoutY="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <menus>
@@ -30,7 +30,8 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button layoutX="119.0" layoutY="184.0" mnemonicParsing="false" text="Ingrsar Dinero" />
-      <Button layoutX="120.0" layoutY="236.0" mnemonicParsing="false" text="Retirar Dinero" />
+      <Button layoutX="173.0" layoutY="239.0" mnemonicParsing="false" text="Ingrsar Dinero" />
+      <Button layoutX="52.0" layoutY="239.0" mnemonicParsing="false" text="Retirar Dinero" />
+      <TextField layoutX="90.0" layoutY="183.0" />
    </children>
 </AnchorPane>

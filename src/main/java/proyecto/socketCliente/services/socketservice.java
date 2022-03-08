@@ -2,9 +2,16 @@ package proyecto.socketCliente.services;
 
 import java.io.EOFException;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.net.SocketException;
+
+import proyecto.socketCliente.App;
+import proyecto.socketCliente.clientController;
+import proyecto.socketCliente.model.account;
+import proyecto.socketCliente.model.user;
+import proyecto.socketCliente.send.ClientSend;
 
 public class socketservice {
 	private static Socket server;
@@ -40,6 +47,36 @@ public class socketservice {
 
 	}
     private static void listenToServerActions(Socket server2) {
+    	try {
+			ObjectInputStream objstream = new ObjectInputStream(server2.getInputStream());
+			try {
+				ClientSend seleccion = (ClientSend) objstream.readObject();
+				user miuser;
+				account miaccount;
+				switch (seleccion.getSelect()) {
+				case 1:
+						miuser = (user) seleccion.getObj1();
+						miaccount = (account) seleccion.getObj2();
+
+						clientController.setMiuser(miuser);
+						clientController.setAccountconnect(miaccount);
+					
+					break;
+
+				case 2:
+						
+					break;
+				}
+			
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
     
