@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import proyecto.socketCliente.services.socketservice;
 
 import java.io.IOException;
 
@@ -20,6 +21,9 @@ public class App extends Application {
         scene = new Scene(loadFXML("login"), 640, 480);
         stage.setScene(scene);
         stage.show();
+        
+     // inicia la conexión con el servidor
+     	socketservice.connectToServer();
     }
 
     public static void setRoot(String fxml) throws IOException {

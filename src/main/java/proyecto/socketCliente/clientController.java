@@ -11,8 +11,8 @@ import proyecto.socketCliente.send.ClientSend;
 import proyecto.socketCliente.services.socketservice;
 
 public class clientController {
-	private static user userconect=new user();
-	private static account accountconnect=new account();
+	private static user userconect = new user();
+	private static account accountconnect = new account();
 	@FXML
 	private Label LabWallet;
 	@FXML
@@ -20,46 +20,50 @@ public class clientController {
 
 	@FXML
 	protected void initialize() {
-		LabWallet.setText(userconect.getWallet()+" €");
+		LabWallet.setText(userconect.getWallet() + " €");
 	}
+
 	@FXML
 	public void ingresar() {
-		int dinero = Integer.parseInt(txfdinero.getText()) ;
-		ClientSend ingreso=new ClientSend(2, accountconnect);
+		// obtiene el dinero del input
+		int dinero = Integer.parseInt(txfdinero.getText());
+		// objeto que le comunicará al servidor la cuenta manipulada y la operación que
+		// debe realizar
+		ClientSend ingreso = new ClientSend(2, accountconnect);
 		try {
+			// comunicación con el servidor
 			socketservice.sendDataToServer(ingreso);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 	}
+
 	@FXML
 	public void retirar() {
-		int dinero = Integer.parseInt(txfdinero.getText()) ;
-		ClientSend ingreso=new ClientSend(3, accountconnect);
+		// obtiene el dinero del input
+		int dinero = Integer.parseInt(txfdinero.getText());
+		// objeto que le comunicará al servidor la cuenta manipulada y la operación que
+		// debe realizar
+		ClientSend ingreso = new ClientSend(3, accountconnect);
 		try {
+			// comunicación con el servidor
 			socketservice.sendDataToServer(ingreso);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		LabWallet.setText(userconect.getWallet()+"€");
+		LabWallet.setText(userconect.getWallet() + "€");
 	}
-	
-	
+
 	@FXML
 	public static void setMiuser(user miuser) {
 		userconect = miuser;
 	}
-	
+
 	@FXML
 	public static void setAccountconnect(account accountconnect) {
 		clientController.accountconnect = accountconnect;
-		
 	}
-
-
-
-
 }
