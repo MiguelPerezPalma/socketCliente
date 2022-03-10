@@ -4,22 +4,18 @@ public class user {
 	protected int id;
 	protected String name;
 	protected String password;
-	protected int wallet;
 
-	
-	public user(int id, String name, String password, int wallet) {
+	public user(int id, String name, String password) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.password = password;
-		this.wallet = wallet;
 	}
-	
-	public user(String name, String password, int wallet) {
+
+	public user(String name, String password) {
 		super();
 		this.name = name;
 		this.password = password;
-		this.wallet = wallet;
 	}
 
 	public user() {
@@ -29,20 +25,17 @@ public class user {
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
-	}
-	public int getWallet() {
-		return wallet;
-	}
-	public void setWallet(int wallet) {
-		this.wallet = wallet;
 	}
 
 	public String getPassword() {
@@ -53,6 +46,4 @@ public class user {
 		this.password = password;
 	}
 
-
 }
-

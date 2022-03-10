@@ -7,10 +7,12 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.net.SocketException;
 
+import proyecto.socketCliente.App;
+import proyecto.socketCliente.CurrentUserController;
 import proyecto.socketCliente.clientController;
+import proyecto.socketCliente.model.ClientSend;
 import proyecto.socketCliente.model.account;
 import proyecto.socketCliente.model.user;
-import proyecto.socketCliente.send.ClientSend;
 
 public class socketservice {
 	private static Socket server;
@@ -35,7 +37,7 @@ public class socketservice {
 				}
 
 			} catch (Exception e) {
-
+				e.printStackTrace();
 				closeServer(server, true);
 			}
 
@@ -59,10 +61,11 @@ public class socketservice {
 					// inicio de sesión
 					// se obtiene el cliente junto a su cuenta
 					miuser = (user) seleccion.getObj1();
+					CurrentUserController.usuario = miuser;
 					miaccount = (account) seleccion.getObj2();
+					CurrentUserController.cuenta = miaccount;
 
-					clientController.setMiuser(miuser);
-					clientController.setAccountconnect(miaccount);
+					App.setRoot("client");
 
 					break;
 
@@ -89,11 +92,11 @@ public class socketservice {
 			try {
 				objectOutputStream = new ObjectOutputStream(server.getOutputStream());
 				objectOutputStream.writeObject(o);
-				objectOutputStream.flush();
+//				objectOutputStream.flush();
 			} catch (EOFException e) {
 				if (objectOutputStream != null)
 					objectOutputStream.close();
-				throw new SocketException("Desconectado");
+				throw new SocketException("Desconectado del servidor");
 			}
 		}
 	}
@@ -103,7 +106,7 @@ public class socketservice {
 			server.getOutputStream().close();
 			server.close();
 		} catch (IOException e) {
-
+			e.printStackTrace();
 		}
 	}
 }

@@ -1,4 +1,4 @@
-package proyecto.socketCliente.send;
+package proyecto.socketCliente.model;
 
 import java.io.Serializable;
 

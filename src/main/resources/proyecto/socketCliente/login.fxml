@@ -19,11 +19,11 @@
             </Menu>
          </menus>
       </MenuBar>
-      <Button layoutX="128.0" layoutY="308.0" mnemonicParsing="false" onAction="#Login" text="Iniciar Sesion" />
+      <Button layoutX="128.0" layoutY="308.0" mnemonicParsing="false" onAction="#login" text="Iniciar Sesion" />
       <TextField fx:id="txfName" layoutX="96.0" layoutY="117.0" />
       <TextField fx:id="txfPassword" layoutX="96.0" layoutY="204.0" />
       <Label layoutX="117.0" layoutY="87.0" text="Nombre De Usuario" />
       <Label layoutX="140.0" layoutY="176.0" text="Contraseña" />
-      <Button layoutX="245.0" layoutY="368.0" mnemonicParsing="false" onAction="#switchToOperator" text="Registrarse" />
+      <Button layoutX="245.0" layoutY="368.0" mnemonicParsing="false" text="Registrarse" />
    </children>
 </AnchorPane>

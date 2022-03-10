@@ -5,9 +5,9 @@ import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import proyecto.socketCliente.model.ClientSend;
 import proyecto.socketCliente.model.account;
 import proyecto.socketCliente.model.user;
-import proyecto.socketCliente.send.ClientSend;
 import proyecto.socketCliente.services.socketservice;
 
 public class clientController {
@@ -20,7 +20,7 @@ public class clientController {
 
 	@FXML
 	protected void initialize() {
-		LabWallet.setText(userconect.getWallet() + " €");
+//		LabWallet.setText(userconect.getWallet() + " €");
 	}
 
 	@FXML
@@ -54,7 +54,7 @@ public class clientController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		LabWallet.setText(userconect.getWallet() + "€");
+//		LabWallet.setText(userconect.getWallet() + "€");
 	}
 
 	@FXML
