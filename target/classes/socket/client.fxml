@@ -9,13 +9,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="366.0" prefWidth="329.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="socket.clientController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="366.0" prefWidth="329.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="socket.clientController">
    <children>
       <MenuBar layoutY="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <menus>
           <Menu mnemonicParsing="false" text="Menu">
             <items>
-              <MenuItem mnemonicParsing="false" text="Cerrar Sesion" />
+              <MenuItem mnemonicParsing="false" onAction="#cerrarSesion" text="Cerrar Sesion" />
             </items>
           </Menu>
         </menus>
@@ -30,7 +30,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button layoutX="173.0" layoutY="239.0" mnemonicParsing="false" onAction="#ingresar" text="Ingrsar Dinero" />
+      <Button layoutX="173.0" layoutY="239.0" mnemonicParsing="false" onAction="#ingresar" text="Ingresar Dinero" />
       <Button layoutX="52.0" layoutY="239.0" mnemonicParsing="false" onAction="#retirar" text="Retirar Dinero" />
       <TextField fx:id="txfdinero" layoutX="90.0" layoutY="183.0" />
    </children>

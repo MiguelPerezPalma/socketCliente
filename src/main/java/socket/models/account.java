@@ -7,39 +7,48 @@ public class account implements Serializable {
 	protected int id;
 	protected int money;
 	protected user user;
+
 	public account(int id, int money, socket.models.user user) {
 		super();
 		this.id = id;
 		this.money = money;
 		this.user = user;
 	}
+
 	public account(int money, socket.models.user user) {
 		super();
 		this.money = money;
 		this.user = user;
 	}
-	
+
 	public account() {
 		super();
 	}
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public int getMoney() {
 		return money;
 	}
+
 	public void setMoney(int money) {
 		this.money = money;
 	}
+
 	public user getUser() {
 		return user;
 	}
+
 	public void setUser(user user) {
 		this.user = user;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -60,12 +69,10 @@ public class account implements Serializable {
 			return false;
 		return true;
 	}
+
 	@Override
 	public String toString() {
 		return "account [id=" + id + ", money=" + money + ", user=" + user + "]";
 	}
-	
-	
-		
-	
+
 }

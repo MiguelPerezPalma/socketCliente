@@ -2,6 +2,7 @@ package socket;
 
 import java.io.IOException;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -25,9 +26,11 @@ public class clientController {
 	public void ingresar() {
 		// obtiene el dinero del input
 		int dinero = Integer.parseInt(txfdinero.getText());
+		CurrentUserController.cuenta.setMoney(CurrentUserController.cuenta.getMoney() + dinero);
 		// objeto que le comunicará al servidor la cuenta manipulada y la operación que
 		// debe realizar
 		Send ingreso = new Send(2, CurrentUserController.usuario, CurrentUserController.cuenta);
+		LabWallet.setText(CurrentUserController.cuenta.getMoney() + "€");
 		try {
 			// comunicación con el servidor
 			socketservice.sendDataToServer(ingreso);
@@ -42,9 +45,11 @@ public class clientController {
 	public void retirar() {
 		// obtiene el dinero del input
 		int dinero = Integer.parseInt(txfdinero.getText());
+		CurrentUserController.cuenta.setMoney(CurrentUserController.cuenta.getMoney() - dinero);
 		// objeto que le comunicará al servidor la cuenta manipulada y la operación que
 		// debe realizar
 		Send retirada = new Send(3, CurrentUserController.usuario, CurrentUserController.cuenta);
+		LabWallet.setText(CurrentUserController.cuenta.getMoney() + "€");
 		try {
 			// comunicación con el servidor
 			socketservice.sendDataToServer(retirada);
@@ -52,5 +57,19 @@ public class clientController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	@FXML
+	public void cerrarSesion() {
+		CurrentUserController.usuario = new user();
+		CurrentUserController.cuenta = new account();
+		
+		Platform.runLater(() -> {
+			try {
+				App.setRoot("login");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		});
 	}
 }

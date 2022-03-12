@@ -55,29 +55,40 @@ public class socketservice {
 			try {
 				// los datos se asignan a un objeto ClientSend para su manipulación
 				Send seleccion = (Send) objstream.readObject();
-				user miuser;
-				account miaccount;
+				user miuser = seleccion.getObj1();
+				account miaccount = seleccion.getObj2();
 
 				switch (seleccion.getSelect()) {
 				case 1:
-					// inicio de sesión
-					// se obtiene el cliente junto a su cuenta
-					miuser = seleccion.getObj1();
-					CurrentUserController.usuario = miuser;
-					miaccount = seleccion.getObj2();
-					CurrentUserController.cuenta = miaccount;
-					System.out.println("he entrado en case 1");
-					Platform.runLater(() -> {
-						try {
-							App.setRoot("client");
-						} catch (IOException e) {
-							e.printStackTrace();
-						}
-					});
+					if (miuser.getId() != -1) {
+						// inicio de sesión
+						// se obtiene el cliente junto a su cuenta
+						miuser = seleccion.getObj1();
+						CurrentUserController.usuario = miuser;
+						miaccount = seleccion.getObj2();
+						CurrentUserController.cuenta = miaccount;
+						System.out.println("he entrado en case 1");
+						Platform.runLater(() -> {
+							try {
+								App.setRoot("client");
+							} catch (IOException e) {
+								e.printStackTrace();
+							}
+						});
+					} else {
+						System.out.println("No se pudo iniciar sesión");
+					}
 					break;
 
 				case 2:
 					miaccount = seleccion.getObj2();
+					CurrentUserController.cuenta = miaccount;
+					break;
+				case 4:
+					miuser = seleccion.getObj1();
+					miaccount = seleccion.getObj2();
+					
+					CurrentUserController.usuario = miuser;
 					CurrentUserController.cuenta = miaccount;
 					break;
 				}
@@ -103,9 +114,6 @@ public class socketservice {
 			try {
 				objectOutputStream = new ObjectOutputStream(server.getOutputStream());
 				objectOutputStream.writeObject(o);
-				// objectOutputStream.flush();
-				System.out.println("name: " + o.getObj1().getName());
-				System.out.println("opcion: " + o.getSelect());
 			} catch (EOFException e) {
 				if (objectOutputStream != null)
 					objectOutputStream.close();

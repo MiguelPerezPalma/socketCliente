@@ -4,7 +4,6 @@ import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import socket.models.Send;
-import socket.models.account;
 import socket.models.user;
 import socket.services.socketservice;
 
@@ -16,7 +15,7 @@ public class LoginController {
 	private TextField txfPassword;
 
 	@FXML
-	private void switchToOperator() throws IOException {
+	private void switchToSignUp() throws IOException {
 		App.setRoot("createuser");
 	}
 
@@ -31,9 +30,7 @@ public class LoginController {
 
 			// objeto que le comunicará al servidor la cuenta manipulada y la operación que
 			// debe realizar
-			Send paquete = new Send(1, miuser, new account());
-//			paquete.setSelect(1);
-			System.out.println("He entrado en logincontroller. " + paquete.getSelect());
+			Send paquete = new Send(1, miuser);
 			try {
 				// comunicación con el servidor
 				socketservice.sendDataToServer(paquete);
@@ -42,7 +39,6 @@ public class LoginController {
 				e.printStackTrace();
 			}
 		}
-
 	}
 
 }
