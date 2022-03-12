@@ -53,7 +53,7 @@ public class socketservice {
 			// flujo de entrada
 			objstream = new ObjectInputStream(server.getInputStream());
 			try {
-				// los datos se asignan a un objeto ClientSend para su manipulación
+				// los datos se asignan a un objeto Send para su manipulación
 				Send seleccion = (Send) objstream.readObject();
 				user miuser = seleccion.getObj1();
 				account miaccount = seleccion.getObj2();
@@ -79,11 +79,16 @@ public class socketservice {
 					}
 					break;
 
+				// ingresar y retirar
 				case 2:
+					// se actualiza la cuenta que se está usando
 					miaccount = seleccion.getObj2();
 					CurrentUserController.cuenta = miaccount;
 					break;
+					
+				// registrarse
 				case 4:
+					
 					miuser = seleccion.getObj1();
 					miaccount = seleccion.getObj2();
 					

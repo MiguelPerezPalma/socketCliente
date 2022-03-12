@@ -28,8 +28,8 @@ public class LoginController {
 			// las credenciales
 			user miuser = new user(txfName.getText().toString(), txfPassword.getText().toString());
 
-			// objeto que le comunicará al servidor la cuenta manipulada y la operación que
-			// debe realizar
+			// objeto que le comunicará al servidor la cuenta con la que se está trabajando
+			// y la operación que debe realizar
 			Send paquete = new Send(1, miuser);
 			try {
 				// comunicación con el servidor
