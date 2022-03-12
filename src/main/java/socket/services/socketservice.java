@@ -67,7 +67,6 @@ public class socketservice {
 						CurrentUserController.usuario = miuser;
 						miaccount = seleccion.getObj2();
 						CurrentUserController.cuenta = miaccount;
-						System.out.println("he entrado en case 1");
 						Platform.runLater(() -> {
 							try {
 								App.setRoot("client");
